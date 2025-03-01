@@ -29,8 +29,9 @@ A **simulated dataset** representing Toronto’s real estate market across multi
 
 ## 🛠 Methodology
 ### **1️⃣ Data Preprocessing & Feature Engineering**
-🔧 **Handled missing values, categorical encoding**  
-🔄 **Mapped each listing to its corresponding neighbourhood**  
+- **Handled missing values, categorical encoding**  
+- **Mapped each listing to its corresponding neighbourhood**
+- **Convert the column from an object data type to a boolean format for improved readability.**
 
 ---
 
