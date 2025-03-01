@@ -1,1 +1,100 @@
-# SDSS Datathon 2025
+# 🏡 Toronto Real Estate Price Prediction with XGBoost
+**Students in Data Science and Statistics | University of Toronto**
+
+---
+
+## 📌 Overview
+This project develops an **XGBoost-based real estate price prediction model** for **Toronto**, leveraging **geospatial insights**. Instead of using only **ward information** or raw **latitude/longitude**, we enhance the dataset by mapping each listing to its **Toronto Open Data Neighbourhood**. This provides **richer location-based features** that improve model accuracy.
+
+---
+
+## 📂 Dataset
+### **1️⃣ Real Estate Data (`real-estate-data.csv`)**
+A **simulated dataset** representing Toronto’s real estate market across multiple neighbourhoods.  
+📌 **Key features**:
+- 🏡 **Property details**: `beds`, `baths`, `size`, `parking`, `exposure`, `DEN`
+- 📈 **Market data**: `D_mkt` (days on market), `maint` (maintenance fee)
+- 🌍 **Location data**: `ward`, `latitude (lt)`, `longitude (lg)`
+- 🏙 **Enhanced location**: **Neighbourhood assigned from Toronto Open Data**
+- 💰 **Target variable**: `price` (listing price)
+
+📖 *For column details, see* **[Real Estate Data Dictionary](Real%20Estate%20Data%20Dictionary.pdf)**.
+
+### **2️⃣ Toronto Open Data Neighbourhoods**
+- 🏙 **Neighbourhood Mapping** → Listings categorized into **official Toronto neighbourhoods**.
+- 📊 **Rich Location Context** → Each listing now belongs to a **neighbourhood** rather than just a ward.
+- 🌍 **Better Geospatial Representation** → More granular than latitude/longitude alone.
+
+---
+
+## 🛠 Methodology
+### **1️⃣ Data Preprocessing & Feature Engineering**
+🔄 **Mapped each listing to its corresponding neighbourhood**  
+🔧 **Handled missing values, categorical encoding**  
+📈 **Created new features**:
+  - `Price per sqft` → Adjusts for property size  
+  - `Market age ratio` → `building_age / D_mkt`  
+  - `Neighbourhood Score` → Proxy for desirability  
+
+---
+
+### **2️⃣ Exploratory Data Analysis (EDA)**
+📊 **Key Insights from EDA**:
+- **Price Trends Across Neighbourhoods** 🏡 → Some areas have consistently higher values.
+- **Impact of Property Size** 📍 → Larger properties show higher median prices.
+- **Building Age vs. Price** 🏗 ️ → Older properties tend to have lower prices.
+- **Days on Market (`D_mkt`) Analysis** 🗓 ️ → Properties that sit longer don’t always decrease in price.
+
+📚 *See full analysis in the Jupyter Notebook:*  
+📂 **[SDSS Datathon.ipynb](SDSS%20Datathon.ipynb)**
+
+---
+
+### **3️⃣ Predictive Modeling (XGBoost)**
+#### **Why XGBoost?**
+🔥 **Handles large, structured datasets efficiently**  
+🔥 **Boosting prevents overfitting**  
+🔥 **Works well with categorical & numerical data**  
+
+#### **Model Training:**
+- **Feature Selection** 📊 → Based on correlation heatmaps  
+- **Hyperparameter Tuning** 🔧 → GridSearchCV  
+- **Validation Metrics** 📈 → RMSE, R², MAE  
+
+💪 **Final Model Performance** *(Placeholder - Add results once finalized!)*  
+📉 **RMSE**: _X_  
+📊 **R² Score**: _X_  
+
+---
+
+## 💚 Running the Model
+### **1️⃣ Install Dependencies**
+```bash
+pip install pandas numpy scikit-learn xgboost seaborn pydeck
+```
+### **2️⃣ Run the Prediction Model**
+```bash
+python predict_price.py
+```
+### **3️⃣ View Interactive Geospatial Map**
+```bash
+open minimal_toronto_real_estate_map.html
+```
+or:
+```bash
+python -m http.server 8080
+# Open browser at http://localhost:8080/minimal_toronto_real_estate_map.html
+```
+
+---
+
+## 👨‍💻 Contributors
+- **shrimp_net2.0**
+- **Christoffer Tan, Faraaz Ahmed, Janis Joplin, Nagata Aptana**
+- **University of Toronto, Data Science & Statistics**
+- **March 2025**
+
+---
+
+## 💎 References
+- **Toronto Open Data**: [https://open.toronto.ca](https://open.toronto.ca)
