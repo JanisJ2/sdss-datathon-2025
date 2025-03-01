@@ -52,13 +52,14 @@ A **simulated dataset** representing Toronto’s real estate market across multi
 🔥 **Works well with categorical & numerical data**  
 
 #### **Model Training:**
-- **Feature Selection** 📊 → Based on correlation heatmaps  
+- **Feature Selection** 📊 → Based on EDA and Correlation
 - **Hyperparameter Tuning** 🔧 → GridSearchCV  
-- **Validation Metrics** 📈 → RMSE, R², MAE  
+- **Validation Metrics** 📈 → R², MAPE
 
 💪 **Final Model Performance**  
-📉 **RMSE**: _X_  
-📊 **R² Score**: _X_  
+📉 **Result**: 82.75% of predictions are within a 20% of the actual price.
+📊 **R² Score**: 0.906
+📊 **MAPE Score**: 11.89%
 
 ---
 
@@ -69,7 +70,7 @@ pip install pandas numpy scikit-learn xgboost seaborn pydeck
 ```
 ### **2️⃣ Run the Prediction Model**
 ```bash
-python [to be filled later].py
+python backend.py
 ```
 ### **3️⃣ View Interactive Geospatial Map**
 ```bash
