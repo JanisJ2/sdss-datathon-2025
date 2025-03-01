@@ -45,7 +45,7 @@ A **simulated dataset** representing Toronto’s real estate market across multi
 
 ---
 
-### **3️⃣ Predictive Modeling (XGBoost)**
+### **3️⃣ Supervised Predictive Modeling (XGBoost)**
 #### **Why XGBoost?**
 🔥 **Handles large, structured datasets efficiently**  
 🔥 **Boosting prevents overfitting**  
