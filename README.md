@@ -29,12 +29,8 @@ A **simulated dataset** representing Toronto’s real estate market across multi
 
 ## 🛠 Methodology
 ### **1️⃣ Data Preprocessing & Feature Engineering**
-🔄 **Mapped each listing to its corresponding neighbourhood**  
 🔧 **Handled missing values, categorical encoding**  
-📈 **Created new features**:
-  - `Price per sqft` → Adjusts for property size  
-  - `Market age ratio` → `building_age / D_mkt`  
-  - `Neighbourhood Score` → Proxy for desirability  
+🔄 **Mapped each listing to its corresponding neighbourhood**  
 
 ---
 
@@ -42,8 +38,6 @@ A **simulated dataset** representing Toronto’s real estate market across multi
 📊 **Key Insights from EDA**:
 - **Price Trends Across Neighbourhoods** 🏡 → Some areas have consistently higher values.
 - **Impact of Property Size** 📍 → Larger properties show higher median prices.
-- **Building Age vs. Price** 🏗 ️ → Older properties tend to have lower prices.
-- **Days on Market (`D_mkt`) Analysis** 🗓 ️ → Properties that sit longer don’t always decrease in price.
 
 📚 *See full analysis in the Jupyter Notebook:*  
 📂 **[SDSS Datathon.ipynb](SDSS%20Datathon.ipynb)**
@@ -61,7 +55,7 @@ A **simulated dataset** representing Toronto’s real estate market across multi
 - **Hyperparameter Tuning** 🔧 → GridSearchCV  
 - **Validation Metrics** 📈 → RMSE, R², MAE  
 
-💪 **Final Model Performance** *(Placeholder - Add results once finalized!)*  
+💪 **Final Model Performance**  
 📉 **RMSE**: _X_  
 📊 **R² Score**: _X_  
 
@@ -74,16 +68,11 @@ pip install pandas numpy scikit-learn xgboost seaborn pydeck
 ```
 ### **2️⃣ Run the Prediction Model**
 ```bash
-python predict_price.py
+python [to be filled later].py
 ```
 ### **3️⃣ View Interactive Geospatial Map**
 ```bash
-open minimal_toronto_real_estate_map.html
-```
-or:
-```bash
-python -m http.server 8080
-# Open browser at http://localhost:8080/minimal_toronto_real_estate_map.html
+open geospatial.html
 ```
 
 ---
