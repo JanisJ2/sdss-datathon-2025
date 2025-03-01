@@ -1,1 +1,1 @@
-# sdss-datathon-2025
+# SDSS Datathon 2025
