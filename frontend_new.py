@@ -2,15 +2,11 @@ import customtkinter as ctk
 import tkinter as tk
 from tkinter import messagebox
 import pandas as pd
-from final import *  # Ensure your final_pipeline is imported correctly
+from final import *
 
-# ----------------------------
-# Configure CustomTkinter appearance.
-ctk.set_appearance_mode("System")  # Options: "System", "Dark", "Light"
-ctk.set_default_color_theme("blue")  # Options: "blue", "green", "dark-blue"
+ctk.set_appearance_mode("System")  
+ctk.set_default_color_theme("blue")
 
-# ----------------------------
-# Placeholder backend function.
 def backend_function(den, neighbourhood, beds, size, maint):
     print("Backend function called with:")
     print("Den:", den)
@@ -31,16 +27,14 @@ def backend_function(den, neighbourhood, beds, size, maint):
     print("Model Prediction:", prediction[0])
     return f"{int(prediction[0]):,}"
 
-# ----------------------------
 # Function called when the form is submitted.
 def submit_form():
-    den = den_var.get()  # from radio buttons
+    den = den_var.get()
     neighbourhood = neighbourhood_combo.get()
-    beds = beds_combo.get()  # from dropdown
+    beds = beds_combo.get()
     size = size_combo.get()
     maint = maint_entry.get()
 
-    # Validate numeric fields.
     try:
         beds_int = int(beds)
     except ValueError:
@@ -56,7 +50,6 @@ def submit_form():
     result = backend_function(den, neighbourhood, beds_int, size, maint_val)
     messagebox.showinfo("Prediction Result", f"Predicted Price: ~${result}")
 
-# ----------------------------
 # Create the main application window.
 root = ctk.CTk()
 root.title("Real Estate Price Prediction")
@@ -76,7 +69,6 @@ header_label = ctk.CTkLabel(
 )
 header_label.pack(pady=(20, 30))
 
-# ----------------------------
 # Den - Radio Buttons.
 den_frame = ctk.CTkFrame(mainframe)
 den_frame.pack(pady=(5, 15))
