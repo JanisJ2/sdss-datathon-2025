@@ -34,37 +34,23 @@ df = df.drop(columns=['building_age'])
 df = df.drop(columns=['lt'])
 df = df.drop(columns=['lg'])
 df = df.drop(columns=['ward'])
-# ===========================================
-# 2. Parsing "size" into a Numeric Midpoint
-# ===========================================
 
+# data cleaning
 df = df.dropna()
-
-# ===========================================
-# 3. Handle Missing Values and Clean Target
-# ===========================================
 df['maint'] = df['maint'].fillna(df['maint'].median())
-
-# Ensure target 'price' is numeric and drop any rows where it's NaN.
 df['price'] = pd.to_numeric(df['price'], errors='coerce')
 df = df.dropna(subset=['price'])
 
-# ===========================================
-# 4. Define Feature Set (X) and Target (y)
-# ===========================================
+# Define Feature Set (X) and Target (y)
 X = df.drop(columns=['price'])
 y = df['price']
 
-# ===========================================
-# 5. Train-Test Split
-# ===========================================
+# Train-Test Split
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-# ===========================================
-# 6. XGBoost Approach
-# ===========================================
+# XGBoost Approach
 categorical_cols = [ 'DEN', 'neighbourhood', 'size']
 numeric_cols = [col for col in X_train.columns if col not in categorical_cols]
 
