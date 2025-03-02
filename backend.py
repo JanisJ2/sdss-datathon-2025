@@ -18,10 +18,7 @@ from sklearn.model_selection import learning_curve
 
 from xgboost import XGBRegressor
 
-# ===========================================
-# 1. Data Loading & Cleaning
-# ===========================================
-
+# Data Loading & Cleaning
 df = pd.read_csv("real-estate-data-with-neighbourhood.csv")
 
 # drop the unnecessary columns
@@ -103,22 +100,22 @@ print(f"Test R^2:  {xgb_r2:.3f}")
 print(f"MAE: {mae:,.0f}")
 print(f"MAPE: {mape:.2%}")
 
-# Create a TreeExplainer for your XGBoost model.
-explainer = shap.TreeExplainer(final_pipeline.named_steps['xgbregressor'])
+# # Create a TreeExplainer for your XGBoost model.
+# explainer = shap.TreeExplainer(final_pipeline.named_steps['xgbregressor'])
 
-# Transform your training data using the pipeline's preprocessor.
-# (This gives you the feature matrix as seen by the XGBoost model.)
-X_train_transformed = final_pipeline.named_steps['preprocessing'].transform(X_train)
+# # Transform your training data using the pipeline's preprocessor.
+# # (This gives you the feature matrix as seen by the XGBoost model.)
+# X_train_transformed = final_pipeline.named_steps['preprocessing'].transform(X_train)
 
-# Get the feature names from the preprocessor.
-# For scikit-learn version 1.0+ use get_feature_names_out
-feature_names = final_pipeline.named_steps['preprocessing'].get_feature_names_out()
+# # Get the feature names from the preprocessor.
+# # For scikit-learn version 1.0+ use get_feature_names_out
+# feature_names = final_pipeline.named_steps['preprocessing'].get_feature_names_out()
 
-# Compute SHAP values.
-shap_values = explainer.shap_values(X_train_transformed)
+# # Compute SHAP values.
+# shap_values = explainer.shap_values(X_train_transformed)
 
-# Create a SHAP summary plot to visualize the global impact of features.
-shap.summary_plot(shap_values, X_train_transformed, feature_names=feature_names)
+# # Create a SHAP summary plot to visualize the global impact of features.
+# shap.summary_plot(shap_values, X_train_transformed, feature_names=feature_names)
 
 
 train_sizes, train_scores, val_scores = learning_curve(
@@ -144,7 +141,7 @@ within_threshold = pct_errors <= threshold
 fraction_correct = np.mean(within_threshold)
 print(f"{fraction_correct:.2%} of predictions are within ±20% of the actual price.")
 
-thresholds = np.linspace(0, 0.3, 20)  # 0% to 20%
+thresholds = np.linspace(0, 0.3, 20)
 accuracies = []
 
 for t in thresholds:
